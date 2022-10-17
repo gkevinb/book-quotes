@@ -116,21 +116,21 @@ def format_quotes(quotes, author, book):
 # with open('./html/Atomic Habits_ the life-changing million-copy #1 bestseller - Notebook (1).html') as f:
 #     content = f.read()
 
-with open('./html/Gmail - Notes from “Meditations” by Marcus Aurelius (Emperor of Rome).html') as f:
-    content = f.read()
+# with open('./html/Gmail - Notes from “Meditations” by Marcus Aurelius (Emperor of Rome).html') as f:
+#     content = f.read()
 
 
-html_content = BeautifulSoup(content, "html.parser")
+# html_content = BeautifulSoup(content, "html.parser")
 
 
-print('=====')
+# print('=====')
 
 # title = html_content.find("div", class_="bookTitle")
 # author = html_content.find("div", class_="authors")
 
 # q = extract_quotes_from_kindle(html_content)
 
-print("++++++++++++")
+# print("++++++++++++")
 # print(q[-1])
 
 # print(title)
@@ -139,17 +139,18 @@ print("++++++++++++")
 
 # author = "James Clear"
 # book = "Atomic Habits"
-author = "Marcus Aurelius"
-book = "Meditations"
+# author = "Marcus Aurelius"
+# book = "Meditations"
 
-q = extract_quotes_from_apple_book(html_content)
+# q = extract_quotes_from_apple_book(html_content)
 
-q = format_quotes(q, author, book)
-print(q[-1])
+# q = format_quotes(q, author, book)
+# print(q[-1])
 
 # with open('output.json', 'w') as file:
 #     file.write(json.dumps(q, indent=4))
 
 
-with open('output2.json', 'w') as file:
-    file.write(json.dumps(q, indent=4))
+# with open('output2.json', 'w') as file:
+#     file.write(json.dumps(q, indent=4))
+
