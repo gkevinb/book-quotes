@@ -12,11 +12,11 @@ def notes():
 
 
 @notes.command()
-@click.option('--html', help='Source file')
-@click.option('--source', help='source')
-@click.option('--output',help='Output file')
-@click.option('--author',help='Author')
-@click.option('--book',help='Book')
+@click.option("--html", help="Source file")
+@click.option("--source", help="source")
+@click.option("--output", help="Output file")
+@click.option("--author", help="Author")
+@click.option("--book", help="Book")
 def extract(html, source, output, author, book):
     """Command to start casting alchemy"""
     with open(html) as f:
@@ -30,9 +30,9 @@ def extract(html, source, output, author, book):
 
     q = main.format_quotes(q, author, book)
 
-    with open(output, 'w') as file:
+    with open(output, "w") as file:
         file.write(json.dumps(q, indent=4))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     notes()

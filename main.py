@@ -40,12 +40,7 @@ def extract_quotes_from_kindle(html_content):
 
         chapter, page, location = get_heading_information(heading)
 
-        quote = {
-            "chapter": chapter,
-            "page": page,
-            "location": location,
-            "text": text
-        }
+        quote = {"chapter": chapter, "page": page, "location": location, "text": text}
         quotes.append(quote)
     return quotes
 
@@ -79,22 +74,22 @@ def extract_quotes_from_apple_book(html_content):
         <p></p>
         </div>
     </div>
-    
+
     """
-    main_content = html_content.find_all("div", {"dir" : "ltr"})
+    main_content = html_content.find_all("div", {"dir": "ltr"})
     divs = main_content[0].find_all("div", recursive=False)
 
     quotes = []
     for div in divs:
         if len(div.find_all()) > 0:
             first_div = div.find("div")
-            date_div, chapter_div = (first_div.find_all("div"))
-            p = div.find("p") # first p is text
+            date_div, chapter_div = first_div.find_all("div")
+            p = div.find("p")  # first p is text
 
             quote = {
                 "date": clean_text(date_div.text),
                 "chapter": clean_text(chapter_div.text),
-                "text": clean_text(p.text)
+                "text": clean_text(p.text),
             }
             quotes.append(quote)
     return quotes
@@ -107,7 +102,7 @@ def format_quotes(quotes, author, book):
             "author": author,
             "book": book,
             "chapter": quote.get("chapter"),
-            "text": quote.get("text")
+            "text": quote.get("text"),
         }
         formatted_quotes.append(formatted_quote)
     return formatted_quotes
@@ -153,4 +148,3 @@ def format_quotes(quotes, author, book):
 
 # with open('output2.json', 'w') as file:
 #     file.write(json.dumps(q, indent=4))
-
